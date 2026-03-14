@@ -1,0 +1,15 @@
+const mongoose = require('mongoose');
+
+const partnerSchema = new mongoose.Schema(
+  {
+    name: { type: String, required: true, trim: true },
+    logo: { type: String, required: true },
+    website: { type: String },
+    category: { type: String, enum: ['client', 'partner', 'technology'], default: 'client' },
+    active: { type: Boolean, default: true },
+    order: { type: Number, default: 0 },
+  },
+  { timestamps: true }
+);
+
+module.exports = mongoose.model('Partner', partnerSchema);
