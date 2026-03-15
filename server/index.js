@@ -9,6 +9,15 @@ const rateLimit = require('express-rate-limit');
 const path = require('path');
 const fs = require('fs');
 
+// Check required environment variables
+const requiredEnv = ['MONGODB_URI', 'GEMINI_API_KEY', 'JWT_SECRET'];
+const missingEnv = requiredEnv.filter(k => !process.env[k]);
+if (missingEnv.length > 0) {
+  console.error(`❌ CRITICAL: Missing environment variables: ${missingEnv.join(', ')}`);
+  console.error('Please add them in your Render dashboard environment settings.');
+  process.exit(1);
+}
+
 const authRoutes = require('./routes/auth');
 const projectRoutes = require('./routes/projects');
 const blogRoutes = require('./routes/blogs');
