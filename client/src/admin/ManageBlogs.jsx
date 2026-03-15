@@ -29,7 +29,7 @@ export default function ManageBlogs() {
 
   const { data, isLoading } = useQuery({
     queryKey: ['admin-blogs'],
-    queryFn: () => api.get('/blogs?limit=100').then(r => r.data),
+    queryFn: () => api.get('/blogs?status=all&limit=100').then(r => r.data),
   })
 
   const upsert = useMutation({

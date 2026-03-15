@@ -70,7 +70,7 @@ router.post('/message', async (req, res) => {
     // Generate Gemini reply
     const { GoogleGenerativeAI } = require('@google/generative-ai');
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
     const conversationHistory = session.messages.map(m =>
       `${m.from === 'visitor' ? 'Client' : 'Kinetik AI'}: ${m.message}`

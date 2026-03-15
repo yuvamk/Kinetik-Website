@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
   try {
     const { category, search, status = 'published', page = 1, limit = 9 } = req.query;
     const filter = {};
-    if (status) filter.status = status;
+    if (status && status !== 'all') filter.status = status;
     if (category && category !== 'All') filter.category = category;
     if (search) {
       filter.$or = [
@@ -77,7 +77,7 @@ router.post('/generate', verifyToken, async (req, res) => {
     if (!topic) return res.status(400).json({ success: false, message: 'Topic is required.' });
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
     const prompt = `Write a professional, SEO-friendly blog post about: "${topic}".
 
