@@ -71,9 +71,25 @@ app.get('/api/health', (req, res) => {
   res.json({ success: true, message: 'Kinetik API is running', timestamp: new Date() });
 });
 
-// 404 handler
-app.use((req, res) => {
-  res.status(404).json({ success: false, message: 'Route not found' });
+// Serve static assets from client/dist in production
+const clientDistDir = path.join(__dirname, '../client/dist');
+if (fs.existsSync(clientDistDir)) {
+  app.use(express.static(clientDistDir));
+}
+
+// 404 handler for API routes
+app.use('/api/*', (req, res) => {
+  res.status(404).json({ success: false, message: 'API Route not found' });
+});
+
+// Catch-all to serve index.html for React Router
+app.get('*', (req, res) => {
+  const indexFile = path.join(clientDistDir, 'index.html');
+  if (fs.existsSync(indexFile)) {
+    res.sendFile(indexFile);
+  } else {
+    res.status(404).json({ success: false, message: 'Frontend build not found. Please build the client.' });
+  }
 });
 
 // Global error handler
