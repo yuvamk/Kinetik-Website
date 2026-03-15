@@ -40,20 +40,20 @@ export default function About() {
       style={{ paddingTop: '72px' }}
     >
       {/* Hero */}
-      <section style={{ padding: '100px 0 60px', background: '#060608', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', right: '-100px', top: '50%', transform: 'translateY(-50%)', width: 500, height: 500, opacity: 0.4 }}>
+      <section style={{ padding: '80px 0 60px', background: '#060608', position: 'relative', overflow: 'hidden' }} className="md:py-24">
+        <div style={{ position: 'absolute', right: '-100px', top: '50%', transform: 'translateY(-50%)', width: 400, height: 400, opacity: 0.3 }} className="md:w-500 md:h-500 mobile-hide">
           <Canvas camera={{ position: [0, 0, 6], fov: 60 }}>
             <ambientLight intensity={0.5} />
             <pointLight position={[10, 10, 10]} intensity={2} color="#6C63FF" />
             <SpinningRing />
           </Canvas>
         </div>
-        <div className="container-fluid" style={{ position: 'relative', zIndex: 1 }}>
+        <div className="container-fluid mobile-text-center" style={{ position: 'relative', zIndex: 1 }}>
           <span className="section-tag">About Kinetik</span>
-          <h1 className="section-heading" style={{ maxWidth: '600px', marginBottom: '24px' }}>
+          <h1 className="section-heading" style={{ maxWidth: '600px', marginBottom: '24px', fontSize: 'clamp(36px, 10vw, 64px)' }}>
             We Are Builders of the<br /><span className="gradient-text">Digital Future</span>
           </h1>
-          <p style={{ color: '#9999AA', fontSize: '18px', lineHeight: 1.8, maxWidth: '560px' }}>
+          <p style={{ color: '#9999AA', fontSize: 'clamp(16px, 3vw, 18px)', lineHeight: 1.8, maxWidth: '560px' }}>
             Kinetik is a full-service digital agency founded on a simple belief: every great idea deserves extraordinary execution. We combine design artistry with engineering precision to create digital experiences that captivate, convert, and endure.
           </p>
         </div>
@@ -62,7 +62,7 @@ export default function About() {
       {/* Story */}
       <section className="section-padding" style={{ background: '#0E0E12' }}>
         <div className="container-fluid">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
             <div>
               <span className="section-tag">Our Story</span>
               <h2 className="section-heading">Born from a Passion for<br /><span className="gradient-text">Creation</span></h2>
@@ -73,7 +73,7 @@ export default function About() {
                 Today, we help startups and established businesses alike transform their ideas into polished, high-performing digital products. From a sleek landing page to a complex AI-powered system — we build it all.
               </p>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+            <div className="grid grid-cols-2 gap-4">
               {[
                 { num: '50+', label: 'Projects Done' },
                 { num: '40+', label: 'Happy Clients' },
@@ -86,10 +86,10 @@ export default function About() {
                   initial={{ opacity: 0, y: 20 }}
                   viewport={{ once: true }}
                   className="card"
-                  style={{ textAlign: 'center' }}
+                  style={{ textAlign: 'center', padding: '24px 16px' }}
                 >
-                  <div className="gradient-text" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '36px', fontWeight: 800 }}>{stat.num}</div>
-                  <p style={{ color: '#9999AA', fontSize: '13px', marginTop: '4px' }}>{stat.label}</p>
+                  <div className="gradient-text" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(24px, 5vw, 36px)', fontWeight: 800 }}>{stat.num}</div>
+                  <p style={{ color: '#9999AA', fontSize: '12px', marginTop: '4px' }}>{stat.label}</p>
                 </motion.div>
               ))}
             </div>
@@ -104,7 +104,7 @@ export default function About() {
             <span className="section-tag">Our Values</span>
             <h2 className="section-heading">What Drives Us</h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '24px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {values.map((v, i) => {
               const Icon = v.icon
               return (

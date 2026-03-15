@@ -41,10 +41,10 @@ export default function Contact() {
       <section style={{ padding: '100px 0 80px', background: '#060608', textAlign: 'center' }}>
         <div className="container-fluid">
           <span className="section-tag">Get In Touch</span>
-          <h1 className="section-heading" style={{ margin: '0 auto 20px' }}>
+          <h1 className="section-heading" style={{ margin: '0 auto 20px', fontSize: 'clamp(36px, 10vw, 64px)' }}>
             Start Something<br /><span className="gradient-text">Great</span>
           </h1>
-          <p className="section-subheading" style={{ margin: '0 auto' }}>
+          <p className="section-subheading" style={{ margin: '0 auto', fontSize: 'clamp(14px, 3vw, 18px)' }}>
             Have a project in mind? We'd love to hear about it.
           </p>
         </div>
@@ -52,10 +52,10 @@ export default function Contact() {
 
       <section className="section-padding" style={{ background: '#060608', paddingTop: '0' }}>
         <div className="container-fluid">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '80px', alignItems: 'start' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 md:gap-20 items-start">
 
             {/* Info */}
-            <div>
+            <div className="lg:col-span-2">
               <h2 style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '28px', color: '#F5F5F7', marginBottom: '24px' }}>Contact Information</h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '40px' }}>
                 {[
@@ -92,9 +92,9 @@ export default function Contact() {
             </div>
 
             {/* Form */}
-            <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '24px', padding: '48px' }}>
+            <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '24px' }} className="lg:col-span-3 p-6 md:p-12">
               <h3 style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '22px', color: '#F5F5F7', marginBottom: '32px' }}>Send a Message</h3>
-              <form onSubmit={handleSubmit} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
                   { name: 'name', placeholder: 'Your Name *', required: true },
                   { name: 'email', type: 'email', placeholder: 'Email Address *', required: true },

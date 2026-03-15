@@ -31,10 +31,10 @@ export default function Projects() {
       <section style={{ padding: '100px 0 60px', background: '#060608', textAlign: 'center' }}>
         <div className="container-fluid">
           <span className="section-tag">Our Work</span>
-          <h1 className="section-heading" style={{ margin: '0 auto 20px' }}>
+          <h1 className="section-heading" style={{ margin: '0 auto 20px', fontSize: 'clamp(36px, 10vw, 64px)' }}>
             Projects That<br /><span className="gradient-text">Define Excellence</span>
           </h1>
-          <p className="section-subheading" style={{ margin: '0 auto' }}>
+          <p className="section-subheading" style={{ margin: '0 auto', fontSize: 'clamp(14px, 3vw, 18px)' }}>
             A curated selection of projects we're proud to have built.
           </p>
         </div>
@@ -67,13 +67,13 @@ export default function Projects() {
       <section className="section-padding" style={{ background: '#060608', paddingTop: '20px' }}>
         <div className="container-fluid">
           {isLoading ? (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '28px' }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {Array.from({ length: 6 }).map((_, i) => (
                 <div key={i} style={{ height: 360, borderRadius: '20px', background: 'rgba(255,255,255,0.03)', animation: 'pulse 2s infinite' }} />
               ))}
             </div>
           ) : projects.length > 0 ? (
-            <motion.div layout style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '28px' }}>
+            <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <AnimatePresence mode="popLayout">
                 {projects.map(project => (
                   <motion.div

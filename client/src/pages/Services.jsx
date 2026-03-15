@@ -62,10 +62,10 @@ export default function Services() {
       <section style={{ padding: '100px 0 60px', background: '#060608', textAlign: 'center' }}>
         <div className="container-fluid">
           <span className="section-tag">What We Offer</span>
-          <h1 className="section-heading" style={{ margin: '0 auto 20px' }}>
+          <h1 className="section-heading" style={{ margin: '0 auto 20px', fontSize: 'clamp(36px, 10vw, 64px)' }}>
             Services Built for<br /><span className="gradient-text">Bold Ambitions</span>
           </h1>
-          <p className="section-subheading" style={{ margin: '0 auto' }}>
+          <p className="section-subheading" style={{ margin: '0 auto', fontSize: 'clamp(14px, 3vw, 18px)' }}>
             Everything you need to go from idea to a live, thriving digital product.
           </p>
         </div>
@@ -86,9 +86,9 @@ export default function Services() {
                   transition={{ duration: 0.6 }}
                   style={{
                     background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)',
-                    borderRadius: '24px', padding: '48px',
-                    display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '48px', alignItems: 'center',
+                    borderRadius: '24px', 
                   }}
+                  className="p-6 md:p-12 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center"
                 >
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '20px' }}>
@@ -102,7 +102,7 @@ export default function Services() {
                       Start a Project <ArrowRight size={15} />
                     </Link>
                   </div>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {service.features.map(feature => (
                       <div key={feature} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                         <div style={{ width: 20, height: 20, borderRadius: '50%', background: `${service.accent}18`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>

@@ -185,7 +185,7 @@ export default function ChatWidget() {
             transition={{ type: 'spring', damping: 22, stiffness: 320 }}
             style={{
               position: 'absolute', bottom: '76px', right: 0,
-              width: '370px', height: '520px',
+              width: '90vw', maxWidth: '370px', height: '520px', maxHeight: '70vh',
               background: '#0A0A0F',
               border: '1px solid rgba(108,99,255,0.25)',
               borderRadius: '24px', overflow: 'hidden',

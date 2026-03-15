@@ -39,7 +39,7 @@ export default function Navbar() {
           left: 0,
           right: 0,
           zIndex: 1000,
-          padding: '0 40px',
+          padding: '0 24px',
           height: '72px',
           display: 'flex',
           alignItems: 'center',
@@ -49,18 +49,18 @@ export default function Navbar() {
           borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : 'none',
           transition: 'all 0.4s ease',
         }}
+        className="md:px-10"
       >
         {/* Logo */}
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-          {/* K icon — cropped to show just the top icon portion of the logo */}
           <div style={{
-            width: 46, height: 46,
-            borderRadius: '12px',
+            width: 40, height: 40,
+            borderRadius: '10px',
             overflow: 'hidden',
             flexShrink: 0,
             background: '#06101f',
-            boxShadow: '0 0 20px rgba(108,99,255,0.45)',
-          }}>
+            boxShadow: '0 0 15px rgba(108,99,255,0.3)',
+          }} className="md:w-11 md:h-11">
             <img
               src="/kinetik-logo.png"
               alt="Kinetik"
@@ -75,11 +75,11 @@ export default function Navbar() {
           </div>
           <span style={{
             fontFamily: 'Space Grotesk, sans-serif',
-            fontWeight: 800, fontSize: '22px',
+            fontWeight: 800, fontSize: '18px',
             background: 'linear-gradient(135deg, #6C63FF, #00D4FF)',
             WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
             letterSpacing: '-0.02em',
-          }}>
+          }} className="md:text-xl">
             KINETIK
           </span>
         </Link>
@@ -116,9 +116,20 @@ export default function Navbar() {
         <button
           className="md:hidden"
           onClick={() => setOpen(!open)}
-          style={{ background: 'none', border: 'none', color: '#F5F5F7', cursor: 'pointer' }}
+          style={{ 
+            background: 'rgba(255,255,255,0.03)', 
+            border: '1px solid rgba(255,255,255,0.08)', 
+            color: '#F5F5F7', 
+            cursor: 'pointer',
+            padding: '8px',
+            borderRadius: '8px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'all 0.2s'
+          }}
         >
-          {open ? <X size={24} /> : <Menu size={24} />}
+          {open ? <X size={20} /> : <Menu size={20} />}
         </button>
       </motion.nav>
 
@@ -126,40 +137,57 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
             style={{
               position: 'fixed', inset: 0, zIndex: 999,
-              background: 'rgba(6,6,8,0.97)',
-              backdropFilter: 'blur(20px)',
+              background: '#060608',
               display: 'flex', flexDirection: 'column',
-              alignItems: 'center', justifyContent: 'center', gap: '32px',
+              padding: '100px 40px', gap: '20px',
             }}
           >
+            <div style={{ position: 'absolute', top: 0, right: 0, padding: '40px', opacity: 0.1, pointerEvents: 'none' }}>
+               <span style={{ fontSize: '120px', fontWeight: 900, fontFamily: 'Space Grotesk', color: '#6C63FF' }}>K</span>
+            </div>
+
             {navLinks.map((link, i) => (
               <motion.div
                 key={link.to}
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: i * 0.07 }}
+                initial={{ x: 20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: 0.1 + i * 0.05 }}
               >
                 <Link
                   to={link.to}
                   style={{
                     fontFamily: 'Space Grotesk, sans-serif',
-                    fontSize: '40px', fontWeight: 700,
-                    color: '#F5F5F7', textDecoration: 'none',
+                    fontSize: '36px', fontWeight: 800,
+                    color: location.pathname === link.to ? '#6C63FF' : '#F5F5F7', 
+                    textDecoration: 'none',
+                    display: 'block',
+                    letterSpacing: '-0.02em',
                   }}
                 >
                   {link.label}
                 </Link>
               </motion.div>
             ))}
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
-              <Link to="/contact" className="btn-primary" style={{ fontSize: '16px' }}>
+            
+            <motion.div 
+               initial={{ y: 20, opacity: 0 }} 
+               animate={{ y: 0, opacity: 1 }} 
+               transition={{ delay: 0.5 }}
+               style={{ marginTop: 'auto' }}
+            >
+              <Link to="/contact" className="btn-primary" style={{ fontSize: '16px', width: '100%', justifyContent: 'center', padding: '18px' }}>
                 Start a Project
               </Link>
+              <div style={{ marginTop: '32px', display: 'flex', gap: '20px' }}>
+                 <p style={{ color: '#9999AA', fontSize: '13px' }}>Follow us</p>
+                 <div style={{ height: '1px', flex: 1, background: 'rgba(255,255,255,0.06)', alignSelf: 'center' }} />
+              </div>
             </motion.div>
           </motion.div>
         )}

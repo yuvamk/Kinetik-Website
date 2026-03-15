@@ -32,11 +32,10 @@ export default function Footer() {
       position: 'relative',
     }}>
       <div className="container-fluid">
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr repeat(2, auto)', gap: '60px', marginBottom: '60px' }}
-          className="grid-cols-1 md:grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-20 mb-16">
 
           {/* Brand */}
-          <div>
+          <div className="md:col-span-2">
             <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', marginBottom: '20px' }}>
               <div style={{
                 width: 36, height: 36, background: 'linear-gradient(135deg, #6C63FF, #00D4FF)',
@@ -48,7 +47,7 @@ export default function Footer() {
                 KINETIK
               </span>
             </Link>
-            <p style={{ color: '#9999AA', fontSize: '15px', lineHeight: 1.7, maxWidth: '280px', marginBottom: '28px' }}>
+            <p style={{ color: '#9999AA', fontSize: '15px', lineHeight: 1.7, maxWidth: '380px', marginBottom: '28px' }}>
               We build the digital future. Apps, websites, AI solutions — turning ideas into reality.
             </p>
             <div style={{ display: 'flex', gap: '12px' }}>
@@ -109,11 +108,11 @@ export default function Footer() {
           paddingTop: '32px',
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           flexWrap: 'wrap', gap: '16px',
-        }}>
-          <p style={{ color: '#9999AA', fontSize: '13px' }}>
+        }} className="mobile-text-center">
+          <p style={{ color: '#9999AA', fontSize: '13px', width: '100%', textAlign: 'center' }} className="md:w-auto md:text-left">
             © 2024 Kinetik Digital Agency. All rights reserved.
           </p>
-          <p style={{ color: '#9999AA', fontSize: '13px' }}>
+          <p style={{ color: '#9999AA', fontSize: '13px', width: '100%', textAlign: 'center' }} className="md:w-auto md:text-right">
             Built with ❤️ by Kinetik
           </p>
         </div>
@@ -123,13 +122,15 @@ export default function Footer() {
       <button
         onClick={scrollTop}
         style={{
-          position: 'absolute', bottom: '40px', right: '40px',
-          width: 48, height: 48, borderRadius: '50%',
+          position: 'absolute', bottom: '24px', right: '24px',
+          width: 40, height: 40, borderRadius: '50%',
           background: 'linear-gradient(135deg, #6C63FF, #00D4FF)',
           border: 'none', cursor: 'pointer',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+          zIndex: 10,
         }}
+        className="md:bottom-10 md:right-10 md:w-12 md:h-12"
         onMouseEnter={(e) => {
           e.currentTarget.style.transform = 'translateY(-4px)'
           e.currentTarget.style.boxShadow = '0 12px 30px rgba(108,99,255,0.5)'
@@ -140,7 +141,7 @@ export default function Footer() {
         }}
         aria-label="Back to top"
       >
-        <ArrowUp size={20} color="#fff" />
+        <ArrowUp size={18} color="#fff" />
       </button>
     </footer>
   )

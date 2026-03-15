@@ -57,10 +57,10 @@ export default function Blog() {
       <section style={{ padding: '100px 0 60px', background: '#060608', textAlign: 'center' }}>
         <div className="container-fluid">
           <span className="section-tag">Knowledge Base</span>
-          <h1 className="section-heading" style={{ margin: '0 auto 20px' }}>
+          <h1 className="section-heading" style={{ margin: '0 auto 20px', fontSize: 'clamp(36px, 10vw, 64px)' }}>
             Insights &<br /><span className="gradient-text">Ideas</span>
           </h1>
-          <p className="section-subheading" style={{ margin: '0 auto 40px' }}>
+          <p className="section-subheading" style={{ margin: '0 auto 40px', fontSize: 'clamp(14px, 3vw, 18px)' }}>
             Thoughts on technology, design, and building exceptional digital products.
           </p>
           {/* Search */}
@@ -106,13 +106,13 @@ export default function Blog() {
       <section className="section-padding" style={{ background: '#060608', paddingTop: '20px' }}>
         <div className="container-fluid">
           {isLoading ? (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '28px' }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {Array.from({ length: 6 }).map((_, i) => (
                 <div key={i} style={{ height: 340, borderRadius: '20px', background: 'rgba(255,255,255,0.03)' }} />
               ))}
             </div>
           ) : blogs.length > 0 ? (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '28px' }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {blogs.map((blog, i) => (
                 <motion.div
                   key={blog._id}
