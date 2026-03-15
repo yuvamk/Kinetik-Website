@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { MessageCircle, X, Send, Minimize2, Bot, Sparkles } from 'lucide-react'
+import { MessageCircle, X, Send, Minimize2, Bot, Sparkles, ChevronLeft } from 'lucide-react'
 
 const API_BASE = '/api'
 
@@ -184,51 +184,57 @@ export default function ChatWidget() {
             exit={{ opacity: 0, scale: 0.85, y: 20 }}
             transition={{ type: 'spring', damping: 22, stiffness: 320 }}
             style={{
-              position: 'absolute', bottom: '76px', right: 0,
-              width: '90vw', maxWidth: '370px', height: '520px', maxHeight: '70vh',
-              background: '#0A0A0F',
-              border: '1px solid rgba(108,99,255,0.25)',
-              borderRadius: '24px', overflow: 'hidden',
-              display: 'flex', flexDirection: 'column',
-              boxShadow: '0 30px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(108,99,255,0.1)',
+              position: 'fixed', 
+              zIndex: 10000,
             }}
+            className="chat-container-responsive"
           >
-            {/* Header */}
             <div style={{
-              padding: '18px 20px',
+              padding: '12px 16px',
               background: 'linear-gradient(135deg, #6C63FF 0%, #00D4FF 100%)',
               display: 'flex', alignItems: 'center', justifyContent: 'space-between',
               flexShrink: 0,
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            }} className="chat-header-mobile">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <button 
+                  onClick={() => setIsOpen(false)}
+                  className="md-hidden"
+                  style={{ background: 'none', border: 'none', padding: '4px', cursor: 'pointer', color: '#fff' }}
+                >
+                  <ChevronLeft size={24} />
+                </button>
                 <div style={{
-                  width: 40, height: 40, borderRadius: '50%',
+                  width: 36, height: 36, borderRadius: '50%',
                   background: 'rgba(255,255,255,0.2)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   backdropFilter: 'blur(10px)',
                 }}>
-                  <Sparkles size={18} color="#fff" />
+                  <Sparkles size={16} color="#fff" />
                 </div>
                 <div>
-                  <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '14px', color: '#fff', margin: 0 }}>Kira — Kinetik AI</p>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '5px', marginTop: '2px' }}>
-                    <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#4ade80', boxShadow: '0 0 6px #4ade80' }} />
-                    <span style={{ color: 'rgba(255,255,255,0.85)', fontSize: '11px' }}>AI-Powered • Always Online</span>
-                  </div>
+                  <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '14px', color: '#fff', margin: 0 }}>Kira</p>
+                  <span style={{ color: 'rgba(255,255,255,0.85)', fontSize: '11px' }}>AI assistant</span>
                 </div>
               </div>
-              <div style={{ display: 'flex', gap: '8px' }}>
+              <div style={{ display: 'flex', gap: '4px' }}>
                 <button
                   onClick={resetChat}
+                  className="mobile-hide"
                   title="New conversation"
                   style={{ background: 'rgba(255,255,255,0.15)', border: 'none', borderRadius: '8px', width: 30, height: 30, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', fontSize: '12px', color: '#fff' }}
                 >↺</button>
                 <button
                   onClick={() => setIsOpen(false)}
+                  className="mobile-hide"
                   style={{ background: 'rgba(255,255,255,0.15)', border: 'none', borderRadius: '8px', width: 30, height: 30, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}
                 >
                   <Minimize2 size={13} color="#fff" />
                 </button>
+                <button
+                  onClick={resetChat}
+                  className="md-hidden"
+                  style={{ background: 'none', border: 'none', color: '#fff', padding: '8px', fontSize: '18px' }}
+                >↺</button>
               </div>
             </div>
 
@@ -336,50 +342,60 @@ export default function ChatWidget() {
       </AnimatePresence>
 
       {/* FAB Button */}
-      <motion.button
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.92 }}
-        onClick={() => isOpen ? setIsOpen(false) : (setIsOpen(true), setUnread(0))}
-        style={{
-          width: 58, height: 58, borderRadius: '50%',
-          background: 'linear-gradient(135deg, #6C63FF, #00D4FF)',
-          border: 'none', cursor: 'pointer',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          boxShadow: '0 8px 32px rgba(108,99,255,0.5)',
-          position: 'relative',
-        }}
-      >
-        <AnimatePresence mode="wait">
-          {isOpen ? (
-            <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.18 }}>
-              <X size={22} color="#fff" />
-            </motion.div>
-          ) : (
-            <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.18 }}>
-              <Sparkles size={22} color="#fff" />
-            </motion.div>
-          )}
-        </AnimatePresence>
+      {!isOpen && (
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.92 }}
+          onClick={() => setIsOpen(true)}
+          style={{
+            width: 58, height: 58, borderRadius: '50%',
+            background: 'linear-gradient(135deg, #6C63FF, #00D4FF)',
+            border: 'none', cursor: 'pointer',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            boxShadow: '0 8px 32px rgba(108,99,255,0.5)',
+            position: 'relative',
+          }}
+        >
+          <Sparkles size={22} color="#fff" />
+          
+          <motion.div
+            animate={{ scale: [1, 1.4, 1], opacity: [0.5, 0, 0.5] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+            style={{ position: 'absolute', inset: -4, borderRadius: '50%', border: '2px solid rgba(108,99,255,0.5)' }}
+          />
 
-        {/* Pulse ring */}
-        <motion.div
-          animate={{ scale: [1, 1.4, 1], opacity: [0.5, 0, 0.5] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-          style={{ position: 'absolute', inset: -4, borderRadius: '50%', border: '2px solid rgba(108,99,255,0.5)' }}
-        />
+          <AnimatePresence>
+            {unread > 0 && (
+              <motion.div
+                initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }}
+                style={{ position: 'absolute', top: -4, right: -4, width: 20, height: 20, borderRadius: '50%', background: '#ff4757', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', color: '#fff', fontWeight: 700 }}
+              >
+                {unread}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.button>
+      )}
 
-        {/* Unread badge */}
-        <AnimatePresence>
-          {unread > 0 && (
-            <motion.div
-              initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }}
-              style={{ position: 'absolute', top: -4, right: -4, width: 20, height: 20, borderRadius: '50%', background: '#ff4757', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', color: '#fff', fontWeight: 700 }}
-            >
-              {unread}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.button>
+      {/* Desktop Toggle (only if needed/open) */}
+      {isOpen && (
+        <motion.button
+          className="mobile-hide"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.92 }}
+          onClick={() => setIsOpen(false)}
+          style={{
+            width: 58, height: 58, borderRadius: '50%',
+            background: 'linear-gradient(135deg, #6C63FF, #00D4FF)',
+            border: 'none', cursor: 'pointer',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            boxShadow: '0 8px 32px rgba(108,99,255,0.5)',
+            position: 'relative',
+          }}
+        >
+          <X size={22} color="#fff" />
+        </motion.button>
+      )}
     </div>
   )
 }

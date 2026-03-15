@@ -152,6 +152,32 @@ body {
   .mobile-text-center { text-align: center !important; }
 }
 
+/* Responsive Chat Widget */
+.chat-container-responsive {
+  bottom: 0px;
+  right: 0px;
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  border-radius: 0px;
+  background: #0A0A0F;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .chat-container-responsive {
+    bottom: 76px !important;
+    right: 0px !important;
+    width: 370px !important;
+    height: 520px !important;
+    max-height: 70vh !important;
+    border-radius: 24px !important;
+    border: 1px solid rgba(108,99,255,0.25) !important;
+    box-shadow: 0 30px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(108,99,255,0.1) !important;
+  }
+}
+
 /* ─────────────────────────────────────
    SECTION STYLES
 ───────────────────────────────────── */
