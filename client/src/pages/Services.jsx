@@ -88,7 +88,7 @@ export default function Services() {
                     background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)',
                     borderRadius: '24px', 
                   }}
-                  className="p-6 md:p-12 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center"
+                  className="p-6 md-p-12 grid grid-cols-1 md-grid-cols-2 gap-10 md-gap-12 items-center"
                 >
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '20px' }}>

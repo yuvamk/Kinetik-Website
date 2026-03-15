@@ -52,7 +52,7 @@ export default function Contact() {
 
       <section className="section-padding" style={{ background: '#060608', paddingTop: '0' }}>
         <div className="container-fluid">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 md:gap-20 items-start">
+          <div className="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-5 gap-12 md-gap-20 items-start">
 
             {/* Info */}
             <div className="lg:col-span-2">
@@ -92,9 +92,9 @@ export default function Contact() {
             </div>
 
             {/* Form */}
-            <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '24px' }} className="lg:col-span-3 p-6 md:p-12">
+            <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '24px' }} className="lg-col-span-3 p-6 md-p-12">
               <h3 style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700, fontSize: '22px', color: '#F5F5F7', marginBottom: '32px' }}>Send a Message</h3>
-              <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <form onSubmit={handleSubmit} className="grid grid-cols-1 md-grid-cols-2 gap-4">
                 {[
                   { name: 'name', placeholder: 'Your Name *', required: true },
                   { name: 'email', type: 'email', placeholder: 'Email Address *', required: true },

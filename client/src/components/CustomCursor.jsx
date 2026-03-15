@@ -51,8 +51,8 @@ export default function CustomCursor() {
 
   return (
     <>
-      <div ref={dotRef} className="cursor-dot hidden md:block" />
-      <div ref={ringRef} className="cursor-ring hidden md:block" />
+      <div ref={dotRef} className="cursor-dot hidden md-block" />
+      <div ref={ringRef} className="cursor-ring hidden md-block" />
     </>
   )
 }

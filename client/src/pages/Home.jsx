@@ -100,7 +100,7 @@ function ProjectCard({ project }) {
       whileHover={{ y: -6 }}
       style={{ borderRadius: '20px', overflow: 'hidden', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', cursor: 'pointer', position: 'relative', group: 'true' }}
     >
-      <div style={{ height: '220px', background: 'linear-gradient(135deg, #1a1a2e, #16213e)', position: 'relative', overflow: 'hidden' }} className="md:h-60">
+      <div style={{ height: '220px', background: 'linear-gradient(135deg, #1a1a2e, #16213e)', position: 'relative', overflow: 'hidden' }} className="md-h-60">
         {project.coverImage ? (
           <img src={project.coverImage} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} />
         ) : (
@@ -217,7 +217,7 @@ function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <form onSubmit={handleSubmit} className="grid grid-cols-1 md-grid-cols-2 gap-4">
       {[
         { name: 'name', placeholder: 'Your Name *', required: true },
         { name: 'email', placeholder: 'Email Address *', type: 'email', required: true },
@@ -397,7 +397,7 @@ export default function Home() {
                 End-to-end digital solutions crafted to accelerate your business
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-3 gap-6">
               {services.map((service, i) => (
                 <ServiceCard key={service.title} service={service} index={i} />
               ))}
@@ -418,7 +418,7 @@ export default function Home() {
               </Link>
             </div>
             {projects.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-3 gap-6">
                 {projects.map(project => <ProjectCard key={project._id} project={project} />)}
               </div>
             ) : (
@@ -433,11 +433,11 @@ export default function Home() {
         {/* ── 4. STATS / VISION ─────────────────────────────── */}
         <section className="section-padding" style={{ background: '#060608' }}>
           <div className="container-fluid">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div className="grid grid-cols-1 md-grid-cols-2 gap-12 md-gap-20 items-center">
               <div>
                 <span className="section-tag">Our Numbers</span>
                 <h2 className="section-heading">Results That<br /><span className="gradient-text">Matter</span></h2>
-                <div className="grid grid-cols-2 gap-8 md:gap-10 mt-12">
+                <div className="grid grid-cols-2 gap-8 md-gap-10 mt-12">
                   <StatCounter value={50} label="Projects Delivered" />
                   <StatCounter value={40} label="Happy Clients" />
                   <StatCounter value={3} label="Years Experience" />
@@ -476,7 +476,7 @@ export default function Home() {
               </Link>
             </div>
             {blogs.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-3 gap-8">
                 {blogs.map(blog => <BlogCard key={blog._id} post={blog} />)}
               </div>
             ) : (

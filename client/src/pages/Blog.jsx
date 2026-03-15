@@ -106,7 +106,7 @@ export default function Blog() {
       <section className="section-padding" style={{ background: '#060608', paddingTop: '20px' }}>
         <div className="container-fluid">
           {isLoading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-3 gap-8">
               {Array.from({ length: 6 }).map((_, i) => (
                 <div key={i} style={{ height: 340, borderRadius: '20px', background: 'rgba(255,255,255,0.03)' }} />
               ))}

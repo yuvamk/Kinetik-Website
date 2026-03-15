@@ -32,10 +32,10 @@ export default function Footer() {
       position: 'relative',
     }}>
       <div className="container-fluid">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-20 mb-16">
+        <div className="grid grid-cols-1 md-grid-cols-4 gap-12 md-gap-20 mb-16">
 
           {/* Brand */}
-          <div className="md:col-span-2">
+          <div className="md-col-span-2">
             <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', marginBottom: '20px' }}>
               <div style={{
                 width: 36, height: 36, background: 'linear-gradient(135deg, #6C63FF, #00D4FF)',
@@ -109,10 +109,10 @@ export default function Footer() {
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           flexWrap: 'wrap', gap: '16px',
         }} className="mobile-text-center">
-          <p style={{ color: '#9999AA', fontSize: '13px', width: '100%', textAlign: 'center' }} className="md:w-auto md:text-left">
-            © 2024 Kinetik Digital Agency. All rights reserved.
+          <p style={{ color: '#9999AA', fontSize: '13px', width: '100%', textAlign: 'center' }} className="md-w-auto md-text-left">
+            &copy; {new Date().getFullYear()} Kinetik. All rights reserved.
           </p>
-          <p style={{ color: '#9999AA', fontSize: '13px', width: '100%', textAlign: 'center' }} className="md:w-auto md:text-right">
+          <p style={{ color: '#9999AA', fontSize: '13px', width: '100%', textAlign: 'center' }} className="md-w-auto md-text-right">
             Built with ❤️ by Kinetik
           </p>
         </div>
@@ -130,7 +130,7 @@ export default function Footer() {
           transition: 'transform 0.3s ease, box-shadow 0.3s ease',
           zIndex: 10,
         }}
-        className="md:bottom-10 md:right-10 md:w-12 md:h-12"
+        className="md-bottom-10 md-right-10 md-w-12 md-h-12"
         onMouseEnter={(e) => {
           e.currentTarget.style.transform = 'translateY(-4px)'
           e.currentTarget.style.boxShadow = '0 12px 30px rgba(108,99,255,0.5)'

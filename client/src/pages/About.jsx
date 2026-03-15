@@ -40,8 +40,8 @@ export default function About() {
       style={{ paddingTop: '72px' }}
     >
       {/* Hero */}
-      <section style={{ padding: '80px 0 60px', background: '#060608', position: 'relative', overflow: 'hidden' }} className="md:py-24">
-        <div style={{ position: 'absolute', right: '-100px', top: '50%', transform: 'translateY(-50%)', width: 400, height: 400, opacity: 0.3 }} className="md:w-500 md:h-500 mobile-hide">
+      <section style={{ padding: '80px 0 60px', background: '#060608', position: 'relative', overflow: 'hidden' }} className="md-py-32">
+        <div style={{ position: 'absolute', right: '-100px', top: '50%', transform: 'translateY(-50%)', width: 400, height: 400, opacity: 0.3 }} className="md-w-500 md-h-500 mobile-hide">
           <Canvas camera={{ position: [0, 0, 6], fov: 60 }}>
             <ambientLight intensity={0.5} />
             <pointLight position={[10, 10, 10]} intensity={2} color="#6C63FF" />
@@ -62,7 +62,7 @@ export default function About() {
       {/* Story */}
       <section className="section-padding" style={{ background: '#0E0E12' }}>
         <div className="container-fluid">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div className="grid grid-cols-1 md-grid-cols-2 gap-12 md-gap-20 items-center">
             <div>
               <span className="section-tag">Our Story</span>
               <h2 className="section-heading">Born from a Passion for<br /><span className="gradient-text">Creation</span></h2>
@@ -104,7 +104,7 @@ export default function About() {
             <span className="section-tag">Our Values</span>
             <h2 className="section-heading">What Drives Us</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-3 gap-6">
             {values.map((v, i) => {
               const Icon = v.icon
               return (

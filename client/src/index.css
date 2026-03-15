@@ -124,13 +124,32 @@ body {
 .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
 .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
 
-@media (max-width: 1024px) {
-  .lg-grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 768px) {
+  .md-grid-cols-1 { grid-template-columns: 1fr !important; }
+  .md-grid-cols-2 { grid-template-columns: repeat(2, 1fr) !important; }
+  .md-grid-cols-4 { grid-template-columns: repeat(4, 1fr) !important; }
+  .md-col-span-2 { grid-column: span 2 / span 2 !important; }
+  .md-gap-10 { gap: 40px !important; }
+  .md-gap-12 { gap: 48px !important; }
+  .md-gap-20 { gap: 80px !important; }
+  .md-p-12 { padding: 48px !important; }
+  .md-py-32 { padding-top: 128px !important; padding-bottom: 128px !important; }
+  .md-h-60 { height: 240px !important; }
+  .md-w-500 { width: 500px !important; }
+  .md-h-500 { height: 500px !important; }
+  .md-bottom-10 { bottom: 40px !important; }
+  .md-right-10 { right: 40px !important; }
+  .md-w-auto { width: auto !important; }
+  .md-text-left { text-align: left !important; }
+  .md-text-right { text-align: right !important; }
 }
 
-@media (max-width: 768px) {
-  .md-grid-cols-1 { grid-template-columns: 1fr; }
-  .md-grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 1024px) {
+  .lg-grid-cols-2 { grid-template-columns: repeat(2, 1fr) !important; }
+  .lg-grid-cols-3 { grid-template-columns: repeat(3, 1fr) !important; }
+  .lg-grid-cols-4 { grid-template-columns: repeat(4, 1fr) !important; }
+  .lg-grid-cols-5 { grid-template-columns: repeat(5, 1fr) !important; }
+  .lg-col-span-3 { grid-column: span 3 / span 3 !important; }
 }
 
 /* ─────────────────────────────────────
@@ -144,6 +163,11 @@ body {
   .md-hidden { display: none !important; }
   .md-block { display: block !important; }
   .md-flex { display: flex !important; }
+  .md-inline-flex { display: inline-flex !important; }
+  .md-px-10 { padding-left: 40px !important; padding-right: 40px !important; }
+  .md-w-11 { width: 44px !important; }
+  .md-h-11 { height: 44px !important; }
+  .md-text-xl { font-size: 20px !important; }
 }
 
 @media (max-width: 768px) {

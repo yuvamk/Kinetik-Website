@@ -49,7 +49,7 @@ export default function Navbar() {
           borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : 'none',
           transition: 'all 0.4s ease',
         }}
-        className="md:px-10"
+        className="md-px-10"
       >
         {/* Logo */}
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
@@ -60,7 +60,7 @@ export default function Navbar() {
             flexShrink: 0,
             background: '#06101f',
             boxShadow: '0 0 15px rgba(108,99,255,0.3)',
-          }} className="md:w-11 md:h-11">
+          }} className="md-w-11 md-h-11">
             <img
               src="/kinetik-logo.png"
               alt="Kinetik"
@@ -79,13 +79,13 @@ export default function Navbar() {
             background: 'linear-gradient(135deg, #6C63FF, #00D4FF)',
             WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
             letterSpacing: '-0.02em',
-          }} className="md:text-xl">
+          }} className="md-text-xl">
             KINETIK
           </span>
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md-flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.to}
@@ -108,13 +108,13 @@ export default function Navbar() {
         </div>
 
         {/* CTA */}
-        <Link to="/contact" className="btn-primary hidden md:inline-flex" style={{ padding: '10px 24px', fontSize: '14px' }}>
+        <Link to="/contact" className="btn-primary hidden md-inline-flex" style={{ padding: '10px 24px', fontSize: '14px' }}>
           Start a Project
         </Link>
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden"
+          className="md-hidden"
           onClick={() => setOpen(!open)}
           style={{ 
             background: 'rgba(255,255,255,0.03)', 

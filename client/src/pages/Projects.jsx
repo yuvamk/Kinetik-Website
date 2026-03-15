@@ -67,21 +67,21 @@ export default function Projects() {
       <section className="section-padding" style={{ background: '#060608', paddingTop: '20px' }}>
         <div className="container-fluid">
           {isLoading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-3 gap-8">
               {Array.from({ length: 6 }).map((_, i) => (
                 <div key={i} style={{ height: 360, borderRadius: '20px', background: 'rgba(255,255,255,0.03)', animation: 'pulse 2s infinite' }} />
               ))}
             </div>
           ) : projects.length > 0 ? (
-            <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-3 gap-8">
               <AnimatePresence mode="popLayout">
-                {projects.map(project => (
+                {projects.map((project) => (
                   <motion.div
-                    key={project._id}
                     layout
-                    initial={{ opacity: 0, scale: 0.95 }}
+                    key={project._id}
+                    initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.3 }}
                     whileHover={{ y: -6 }}
                     style={{ borderRadius: '20px', overflow: 'hidden', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}
@@ -115,7 +115,7 @@ export default function Projects() {
                   </motion.div>
                 ))}
               </AnimatePresence>
-            </motion.div>
+            </div>
           ) : (
             <div style={{ textAlign: 'center', padding: '80px 0', color: '#9999AA' }}>
               <Code2 size={48} color="rgba(108,99,255,0.2)" style={{ margin: '0 auto 16px' }} />
