@@ -27,6 +27,7 @@ const chatRoutes = require('./routes/chat');
 const { initializeChatHandler } = require('./socket/chatHandler');
 
 const app = express();
+app.set('trust proxy', 1); // Required for express-rate-limit on Render
 const server = http.createServer(app);
 
 const io = new Server(server, {
